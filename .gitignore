@@ -36,7 +36,6 @@ custom/server/*
 
 public/custom/*
 !public/custom/.gitkeep
-!public/custom/ReactionPublicCustomFolder
 
 private/custom/*
 !private/custom/.gitkeep
