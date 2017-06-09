@@ -4,7 +4,7 @@
 version: '3'
 services:
   web:
-    image: evereve/reaction:latest
+    image: evereve/reaction
     ports:
       - "80:3000"
     environment:

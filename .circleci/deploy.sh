@@ -40,7 +40,7 @@ fi
 
 # Master branch deployment (only runs when a version git tag exists - syntax: "v1.2.3")
 if [[ "$CIRCLE_BRANCH" == "master" || "$CIRCLE_BRANCH" == "testingDeploy" ]]; then
-  # VERSION=$(git describe --tags | grep "/test-ee-v[0-9]+(\.[0-9]+)*/")
+  VERSION=$(git describe --tags | grep "/test-ee-v[0-9]+(\.[0-9]+)*/")
   #
   # if [[ "$VERSION" ]]; then
     set -e
