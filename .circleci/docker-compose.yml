@@ -3,7 +3,7 @@
 
 reaction:
   container_name: reaction
-  image: evereve/reaction
+  image: evereve/reaction:latest
   # links:
   #   - mongo
   ports:
