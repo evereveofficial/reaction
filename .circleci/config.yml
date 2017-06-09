@@ -53,4 +53,4 @@ jobs:
       # deploy the build (if on a deployment branch)
       - deploy:
           name: Docker Image Deploment
-          command: .circleci/deploy.sh
+          command: sh .circleci/deploy.sh
