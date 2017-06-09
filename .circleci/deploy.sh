@@ -41,13 +41,19 @@ fi
 # Master branch deployment (only runs when a version git tag exists - syntax: "v1.2.3")
 if [[ "$CIRCLE_BRANCH" == "master" || "$CIRCLE_BRANCH" == "testingDeploy" ]]; then
   VERSION=$(git describe --tags | grep "/test-ee-v[0-9]+\.[0-9]\+\.[0-9]\+*")
+  echo $VERSION
   #
   # if [[ "$VERSION" ]]; then
     set -e
 
     DOCKER_NAMESPACE=${DOCKER_NAMESPACE:-"reactioncommerce/reaction"}
 
-    docker tag $DOCKER_NAMESPACE:latest $DOCKER_NAMESPACE:$VERSION
+    docker tag $DOCKER_NAMESPACE:latest
+    if [[ "$VERSION" ]]; then
+      docker tag $DOCKER_NAMESPACE:$VERSION
+    else
+      docker tag $DOCKER_NAMESPACE:test-version-bad
+    fi
 
     docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
 
