@@ -1,3 +1,4 @@
+chmod +x .circleci/install.sh
 #!/bin/bash
 
 set -e

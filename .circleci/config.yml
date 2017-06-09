@@ -54,5 +54,4 @@ jobs:
       - deploy:
           tag: /ee-v[0-9]+(\.[0-9]+)*/
           name: Docker Image Deploment
-          command: chmod +x .circleci/deploy.sh
           command: .circleci/deploy.sh
