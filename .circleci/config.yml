@@ -21,7 +21,7 @@ jobs:
           name: Restoring Meteor cache
           key: meteor
 
-      - run: sh .circleci/install.sh
+      - run: bash .circleci/install.sh
 
       - save_cache:
           name: Saving Meteor to cache
@@ -54,4 +54,4 @@ jobs:
       - deploy:
           tag: /ee-v[0-9]+(\.[0-9]+)*/
           name: Docker Image Deploment
-          command: sh .circleci/deploy.sh
+          command: bash .circleci/deploy.sh
