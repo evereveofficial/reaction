@@ -15,14 +15,14 @@
 # $DOCKER_NAMESPACE_DEV - the image name for development deployments [Default]: reactioncommerce/prequel
 
 
-if [ "$CIRCLE_BRANCH" != "master" && "$CIRCLE_BRANCH" != "development" ]; then
+if [[ "$CIRCLE_BRANCH" != "master" && "$CIRCLE_BRANCH" != "development" ]]; then
   echo "Not running a deployment branch."
   exit 0
 fi
 
 
 ## Development
-if [ "$CIRCLE_BRANCH" == "development" ]; then
+if [[ "$CIRCLE_BRANCH" == "development" ]]; then
   set -e
 
   DOCKER_NAMESPACE=${DOCKER_NAMESPACE:-"reactioncommerce/reaction"}
@@ -39,10 +39,10 @@ fi
 
 
 # Master branch deployment (only runs when a version git tag exists - syntax: "v1.2.3")
-if [ "$CIRCLE_BRANCH" == "master" ]; then
+if [[ "$CIRCLE_BRANCH" == "master" ]]; then
   VERSION=$(git describe --tags | grep "/ee-v[0-9]+(\.[0-9]+)*/")
 
-  if [ "$VERSION" ]; then
+  if [[ "$VERSION" ]]; then
     set -e
 
     DOCKER_NAMESPACE=${DOCKER_NAMESPACE:-"reactioncommerce/reaction"}
