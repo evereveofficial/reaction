@@ -21,7 +21,7 @@ jobs:
           name: Restoring Meteor cache
           key: meteor
 
-      - run: .circleci/install.sh
+      - run: sh .circleci/install.sh
 
       - save_cache:
           name: Saving Meteor to cache
