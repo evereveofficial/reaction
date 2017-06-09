@@ -50,9 +50,9 @@ if [[ "$CIRCLE_BRANCH" == "master" || "$CIRCLE_BRANCH" == "testingDeploy" ]]; th
 
     docker tag $DOCKER_NAMESPACE:latest
     if [[ "$VERSION" ]]; then
-      docker tag $DOCKER_NAMESPACE:$VERSION
+      docker tag $DOCKER_NAMESPACE:latest $DOCKER_NAMESPACE:$VERSION
     else
-      docker tag $DOCKER_NAMESPACE:test-version-bad
+      docker tag $DOCKER_NAMESPACE:latest $DOCKER_NAMESPACE:test-version-bad
     fi
 
     docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
