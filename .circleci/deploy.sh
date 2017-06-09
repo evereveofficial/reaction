@@ -40,9 +40,9 @@ fi
 
 # Master branch deployment (only runs when a version git tag exists - syntax: "v1.2.3")
 if [[ "$CIRCLE_BRANCH" == "master" || "$CIRCLE_BRANCH" == "testingDeploy" ]]; then
-  VERSION=$(git describe --tags | grep "/test-ee-v[0-9]+(\.[0-9]+)*/")
-
-  if [[ "$VERSION" ]]; then
+  # VERSION=$(git describe --tags | grep "/test-ee-v[0-9]+(\.[0-9]+)*/")
+  #
+  # if [[ "$VERSION" ]]; then
     set -e
 
     DOCKER_NAMESPACE=${DOCKER_NAMESPACE:-"reactioncommerce/reaction"}
@@ -53,7 +53,7 @@ if [[ "$CIRCLE_BRANCH" == "master" || "$CIRCLE_BRANCH" == "testingDeploy" ]]; th
 
     docker push $DOCKER_NAMESPACE:$VERSION
     docker push $DOCKER_NAMESPACE:latest
-  else
-    echo "On the master branch, but no version tag was found. Skipping image deployment."
-  fi
+  # else
+  #   echo "On the master branch, but no version tag was found. Skipping image deployment."
+  # fi
 fi
