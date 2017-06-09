@@ -15,7 +15,7 @@
 # $DOCKER_NAMESPACE_DEV - the image name for development deployments [Default]: reactioncommerce/prequel
 
 
-if [[ "$CIRCLE_BRANCH" != "master" && "$CIRCLE_BRANCH" != "development"  && "$CIRCLE_BRANCH" != "testingDeploy"]]; then
+if [[ "$CIRCLE_BRANCH" != "master" && "$CIRCLE_BRANCH" != "development"  && "$CIRCLE_BRANCH" != "testingDeploy" ]]; then
   echo "Not running a deployment branch."
   exit 0
 fi
