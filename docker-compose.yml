@@ -1,13 +1,22 @@
-# Usage:
-# docker-compose up -d
-#
-version: '3'
-services:
-  web:
-    image: evereve/reaction
-    ports:
-      - "80:3000"
-    environment:
-      - MONGO_URL="mongodb://aw34o9muw4dc3mr4:brn3dxhnqhkm38wtchn9@aws-us-west-2-portal.0.dblayer.com:15835,aws-us-west-2-portal.1.dblayer.com:15835/development?ssl=true"
-      - ELASTICSEARCH_AUTH="elastic:HOGMwBsOMPAghvUBxH8EIZzK"
-      - ELASTICSEARCH_HOST="e46d714d5ae330a95f1f6d77f1911278.us-east-1.aws.found.io"
+# # Usage:
+# # docker-compose up -d
+# #
+# version: '3'
+# services:
+#   web:
+#     image: evereve/reaction
+#     ports:
+#       - "80:3000"
+#     environment:
+#       - MONGO_URL="mongodb://aw34o9muw4dc3mr4:brn3dxhnqhkm38wtchn9@aws-us-west-2-portal.0.dblayer.com:15835,aws-us-west-2-portal.1.dblayer.com:15835/development?ssl=true"
+#       - ELASTICSEARCH_AUTH="elastic:HOGMwBsOMPAghvUBxH8EIZzK"
+#       - ELASTICSEARCH_HOST="e46d714d5ae330a95f1f6d77f1911278.us-east-1.aws.found.io"
+
+reaction:
+  container_name: reaction
+  image: reactioncommerce/reaction:latest
+  ports:
+    - "3000:3000"
+  environment:
+    ROOT_URL: "http://localhost"
+    MONGO_URL: "mongodb://aw34o9muw4dc3mr4:brn3dxhnqhkm38wtchn9@aws-us-west-2-portal.0.dblayer.com:15835,aws-us-west-2-portal.1.dblayer.com:15835/development?ssl=true"
