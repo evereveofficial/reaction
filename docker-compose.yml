@@ -15,8 +15,14 @@
 reaction:
   container_name: reaction
   image: reactioncommerce/reaction:latest
+  links:
+    - mongo
   ports:
     - "3000:3000"
   environment:
     ROOT_URL: "http://localhost"
-    MONGO_URL: "mongodb://aw34o9muw4dc3mr4:brn3dxhnqhkm38wtchn9@aws-us-west-2-portal.0.dblayer.com:15835,aws-us-west-2-portal.1.dblayer.com:15835/development?ssl=true"
+    MONGO_URL: "mongodb://mongo:27017/reaction"
+
+mongo:
+  image: mongo:latest
+  command: mongod --storageEngine=wiredTiger
