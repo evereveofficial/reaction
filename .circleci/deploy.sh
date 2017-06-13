@@ -48,7 +48,6 @@ if [[ "$CIRCLE_BRANCH" == "master" || "$CIRCLE_BRANCH" == "testingDeploy" ]]; th
 
     DOCKER_NAMESPACE=${DOCKER_NAMESPACE:-"reactioncommerce/reaction"}
 
-    docker tag $DOCKER_NAMESPACE:latest
     if [[ "$VERSION" ]]; then
       docker tag $DOCKER_NAMESPACE:latest $DOCKER_NAMESPACE:$VERSION
     else
