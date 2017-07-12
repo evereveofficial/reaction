@@ -17,8 +17,8 @@
             "mail": {
                 "user": "",
                 "password": "",
-                "host": "",
-                "port": ""
+                "host": "smtp.sendgrid.net",
+                "port": "2525"
             },
             "cart": {
                 "cleanupDurationDays": "older than 3 days"
@@ -97,7 +97,7 @@
         "enabled": true,
         "settings": {
             "avalara": {
-                "enabled": false,
+                "enabled": true,
                 "apiLoginId": ""
             }
         }
