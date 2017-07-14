@@ -66,23 +66,21 @@ Import.identify = function (document) {
   check(document, Object);
 
   const probabilities = {};
-
-  for (key of Object.keys(document)) {
+  for (const key of Object.keys(document)) {
     if (this._indications[key]) {
       const collection = this._name(this._indications[key].collection);
-      probabilities[collection] = probabilities[collection] || 1.0 * this._indications[
-        key].probability;
+      probabilities[collection] = probabilities[collection] || 1.0 * this._indications[key].probability;
     }
   }
 
   let total = 1.0;
-  for (key of Object.keys(probabilities)) {
+  for (const key of Object.keys(probabilities)) {
     total *= probabilities[key];
   }
 
   let max = 0.0;
   let name;
-  for (key of Object.keys(probabilities)) {
+  for (const key of Object.keys(probabilities)) {
     const probability = total / probabilities[key];
     if (probability > max) {
       max = probability;
