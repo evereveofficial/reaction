@@ -17,7 +17,10 @@ Template.React.onRendered(function () {
 
   this.autorun(() => {
     const data = Blaze.getData();
-
+    console.log("blaze data");
+    console.log(data);
+    console.log(container);
+    console.log(parentTemplate);
     const comp = data && data.component;
     if (!comp) {
       throw new Error(
