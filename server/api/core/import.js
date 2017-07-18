@@ -2,7 +2,7 @@ import { Mongo } from "meteor/mongo";
 import { EJSON } from "meteor/ejson";
 import * as Collections from "/lib/collections";
 import Hooks from "../hooks";
-import Logger from "../logger";
+import { Logger } from "../logger";
 import doRightJoinNoIntersection from "./rightJoin";
 
 /**
@@ -66,23 +66,21 @@ Import.identify = function (document) {
   check(document, Object);
 
   const probabilities = {};
-
-  for (key of Object.keys(document)) {
+  for (const key of Object.keys(document)) {
     if (this._indications[key]) {
       const collection = this._name(this._indications[key].collection);
-      probabilities[collection] = probabilities[collection] || 1.0 * this._indications[
-        key].probability;
+      probabilities[collection] = probabilities[collection] || 1.0 * this._indications[key].probability;
     }
   }
 
   let total = 1.0;
-  for (key of Object.keys(probabilities)) {
+  for (const key of Object.keys(probabilities)) {
     total *= probabilities[key];
   }
 
   let max = 0.0;
   let name;
-  for (key of Object.keys(probabilities)) {
+  for (const key of Object.keys(probabilities)) {
     const probability = total / probabilities[key];
     if (probability > max) {
       max = probability;
@@ -223,9 +221,7 @@ Import.buffer = function (collection) {
  * * Push the variant if it doesn't exist.
  * * Update the variant.
  */
-Import.product = function (key, product, parent) {
-  check(parent, Object);
-
+Import.product = function (key, product) {
   return this.object(Collections.Products, key, product);
 };
 
